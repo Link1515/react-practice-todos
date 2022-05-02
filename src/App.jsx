@@ -29,13 +29,20 @@ export default class App extends Component {
     this.setState({ todos: newTodos });
   };
 
+  removeTodo = (id) => {
+    if (!window.confirm('是否確定刪除')) return;
+    const { todos } = this.state;
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    this.setState({ todos: newTodos });
+  };
+
   render() {
     const { todos } = this.state;
 
     return (
       <div className="app">
         <Header addTodo={this.addTodo} />
-        <List todos={todos} updateTodoState={this.updateTodoState} />
+        <List todos={todos} updateTodoState={this.updateTodoState} removeTodo={this.removeTodo} />
         <Footer />
       </div>
     );

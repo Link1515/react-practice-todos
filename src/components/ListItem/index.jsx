@@ -19,7 +19,7 @@ export default class ListItem extends Component {
   };
 
   render() {
-    const { id, name, done } = this.props;
+    const { id, name, done, removeTodo } = this.props;
     const { mouse } = this.state;
 
     return (
@@ -28,7 +28,13 @@ export default class ListItem extends Component {
           <input onChange={this.handleChange(id)} type="checkbox" id={'listItem' + id} defaultChecked={done} />
           {name}
         </label>
-        <button className="btn btn-danger" style={{ display: mouse ? '' : 'none' }}>
+        <button
+          onClick={() => {
+            removeTodo(id);
+          }}
+          className="btn btn-danger"
+          style={{ display: mouse ? '' : 'none' }}
+        >
           刪除
         </button>
         {/* 另一種寫法 */}
