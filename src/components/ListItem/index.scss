@@ -1,0 +1,18 @@
+.listItem {
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: .3s;
+  cursor: pointer;
+
+  &+.listItem {
+    border-top: 1px solid #aaa;
+  }
+
+  &:hover {
+    background-color: #afa;
+  }
+
+  input {
+    margin-right: 10px;
+  }
+}
