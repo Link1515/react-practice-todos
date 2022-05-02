@@ -3,10 +3,14 @@ import './index.scss';
 
 export default class ListItem extends Component {
   render() {
+    const { id, name } = this.props;
+
     return (
       <li className="listItem">
-        <input type="checkbox" />
-        <label>項目</label>
+        <label htmlFor={'listItem' + id}>
+          <input type="checkbox" id={'listItem' + id} />
+          {name}
+        </label>
       </li>
     );
   }

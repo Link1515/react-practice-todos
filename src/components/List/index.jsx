@@ -4,11 +4,13 @@ import './index.scss';
 
 export default class List extends Component {
   render() {
+    const { todos } = this.props;
+
     return (
       <ul className="list">
-        <ListItem />
-        <ListItem />
-        <ListItem />
+        {todos.map((todo) => (
+          <ListItem {...todo} key={todo.id} />
+        ))}
       </ul>
     );
   }
