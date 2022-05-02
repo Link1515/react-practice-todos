@@ -25,7 +25,7 @@ export default class ListItem extends Component {
     return (
       <li className="listItem" onMouseEnter={this.handleMouse(true)} onMouseLeave={this.handleMouse(false)}>
         <label htmlFor={'listItem' + id}>
-          <input onChange={this.handleChange(id)} type="checkbox" id={'listItem' + id} defaultChecked={done} />
+          <input onChange={this.handleChange(id)} type="checkbox" id={'listItem' + id} checked={done} />
           {name}
         </label>
         <button

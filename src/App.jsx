@@ -36,6 +36,18 @@ export default class App extends Component {
     this.setState({ todos: newTodos });
   };
 
+  checkAll = (done) => {
+    const { todos } = this.state;
+    const newTodos = todos.map((todo) => ({ ...todo, done }));
+    this.setState({ todos: newTodos });
+  };
+
+  clearDone = () => {
+    const { todos } = this.state;
+    const newTodos = todos.filter((todo) => !todo.done);
+    this.setState({ todos: newTodos });
+  };
+
   render() {
     const { todos } = this.state;
 
@@ -43,7 +55,7 @@ export default class App extends Component {
       <div className="app">
         <Header addTodo={this.addTodo} />
         <List todos={todos} updateTodoState={this.updateTodoState} removeTodo={this.removeTodo} />
-        <Footer />
+        <Footer todos={todos} checkAll={this.checkAll} clearDone={this.clearDone} />
       </div>
     );
   }
