@@ -4,12 +4,12 @@ import './index.scss';
 
 export default class List extends Component {
   render() {
-    const { todos } = this.props;
+    const { todos, updateTodoState } = this.props;
 
     return (
       <ul className="list">
         {todos.map((todo) => (
-          <ListItem {...todo} key={todo.id} />
+          <ListItem {...todo} key={todo.id} updateTodoState={updateTodoState} />
         ))}
       </ul>
     );
